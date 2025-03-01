@@ -1,0 +1,18 @@
+body{
+    background-color:black;
+    color:white;
+    font-family:'Times New Roman', Times, serif;
+}
+#audio{
+    border:20px solid white;
+    border-radius:20px;
+}
+
+#video{
+    border:10px solid white;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : auto ;
+}
