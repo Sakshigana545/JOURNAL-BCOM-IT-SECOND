@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light with CSS Demonstration</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+ .traffic-light {
+            width: 120px;
+            height: 350px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+.light {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 10px auto;
+        }
+/* CSS Class Selectors */
+        #red {
+            background-color: red;
+        }
+#yellow {
+            background-color: yellow;
+        }
+ #green {
+            background-color: green;
+        }
+ .light.active {
+            opacity: 1;
+        }
+.light {
+            opacity: 0.3;
+            transition: opacity 1s ease;
+        }
+
+ /* Inline CSS for the buttons */
+  #startButton, #stopButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+     #startButton:hover, #stopButton:hover {
+            background-color: #45a049;
+        }
+ #stopButton {
+            background-color: #f44336;
+        }
+    </style>
+    </head>
+<body>
+ <div class="traffic-light">
+        <div class="light" id="red"></div>
+        <div class="light" id="yellow"></div>
+        <div class="light" id="green"></div>
+    </div>
+<!-- Inline Buttons to start and stop traffic light -->
+    <button id="startButton" onclick="startTrafficLight()">Start Traffic Light</button>
+    <button id="stopButton" onclick="stopTrafficLight()">Stop Traffic Light</button>
+</body>
+</html>

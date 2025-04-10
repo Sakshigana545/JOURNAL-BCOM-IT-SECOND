@@ -1,0 +1,42 @@
+<!-- design javscript to demonstrate use of dialogue boxes and vaildationh-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dialog Boxes and Validation</title>
+    <script>
+        function validateForm() {
+        var name=document.getElementById("name").value;
+        var email=document.getElementById("email").value;
+        if(name==""||email=="") {
+        alert("All fields are required");
+        return false;}
+        else if(!email.includes("@")) {
+        alert("Invalid email address");
+        return false;}
+        else {
+        alert("Form submitted successfully");
+        return true;}}
+
+        function displayDialog() {
+        var userResponse=confirm("Do you want to proceed?");
+        if(userResponse) {
+        alert("You chose to proceed");}
+        else {
+        alert("You chose to cancel");}}
+    </script>
+</head>
+<body>
+    <h1>Dialog Boxes and Form Validation Example</h1>
+    <form onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <button onclick="displayDialog()">Display Dialog</button>
+</body>
+</html>

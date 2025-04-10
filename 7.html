@@ -1,0 +1,69 @@
+<!-- design javascript demonstration of event,eventhandlers,builtin,user defined function -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event and Functions with User Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: pink;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event and Function Demo with User Input</h1>
+
+    <div>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button id="myButton">Submit</button>
+    </div>
+
+    <div id="output">Enter your name and click the button to see the result.</div>
+
+    <script>
+        // Event Handler
+        document.getElementById('myButton').addEventListener('click', handleButtonClick);
+
+        // User-defined Function
+        function handleButtonClick() {
+            const name = document.getElementById('nameInput').value; // Get user input
+            const currentTime = new Date().toLocaleTimeString(); // Built-in function to get current time
+
+            // Check if the user entered a name
+            if (name.trim() === "") {
+                updateOutput("Please enter your name.");
+            } else {
+                updateOutput(`Hello, ${name}! You clicked the button at ${currentTime}.`);
+            }
+        }
+
+        // User-defined function to update HTML content
+        function updateOutput(text) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = text;
+        }
+    </script>
+</body>
+</html>
+

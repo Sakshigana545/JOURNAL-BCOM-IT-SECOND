@@ -1,0 +1,102 @@
+<!-- design a webpage to demonstrat use of html 5 webformand use of canva elements,drawing shapes,line,colors and gradients,addimg adding image to canva ,creating patterns and textures -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Web Forms and Canvas Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color:pink;
+        }
+
+        canvas {
+            border: 1px solid #000;
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML5 Web Forms and Canvas Example</h1>
+
+    <!-- HTML5 Web Form -->
+    <div class="form-container">
+        <form id="canvasForm">
+            <label for="shape">Choose a shape:</label>
+            <select id="shape" name="shape">
+                <option value="rectangle">Rectangle</option>
+                <option value="circle">Circle</option>
+                <option value="line">Line</option>
+            </select>
+
+            <label for="color">Choose a color:</label>
+            <input type="color" id="color" name="color" value="#ff0000">
+
+            <button type="button" id="drawButton">Draw</button>
+        </form>
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="myCanvas" width="500" height="300"></canvas>
+    <br>
+
+    <button id="addImageButton">Add Image</button>
+    <button id="addPatternButton">Add Pattern</button>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        const drawButton = document.getElementById('drawButton');
+        const addImageButton = document.getElementById('addImageButton');
+        const addPatternButton = document.getElementById('addPatternButton');
+
+        // Draw shapes based on form input
+        drawButton.addEventListener('click', () => {
+            const shape = document.getElementById('shape').value;
+            const color = document.getElementById('color').value;
+
+            ctx.fillStyle = color;
+
+            if (shape === 'rectangle') {
+                ctx.fillRect(50, 50, 150, 100);
+            } else if (shape === 'circle') {
+                ctx.beginPath();
+                ctx.arc(200, 150, 50, 0, Math.PI * 2);
+                ctx.fill();
+            } else if (shape === 'line') {
+                ctx.beginPath();
+                ctx.moveTo(50, 50);
+                ctx.lineTo(250, 150);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+        });
+
+        // Add an image to the canvas
+        addImageButton.addEventListener('click', () => {
+            const image = new Image();
+            image.src = 'INDIA.jpeg'; // Replace with your image URL
+            image.onload = () => {
+                ctx.drawImage(image, 300, 100, 100, 100);
+            };
+        });
+
+        // Add a pattern to the canvas
+        addPatternButton.addEventListener('click', () => {
+            const image = new Image();
+            image.src = 'https://via.placeholder.com/50'; // Replace with your pattern image URL
+            image.onload = () => {
+                const pattern = ctx.createPattern(image, 'repeat');
+                ctx.fillStyle = pattern;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* External CSS: Styles for the traffic light container */
+.traffic-light {
+    width: 120px;
+    height: 350px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.light {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 10px auto;
+}
+
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+.light.active {
+    opacity: 1;
+}
+
+.light {
+    opacity: 0.3;
+    transition: opacity 1s ease;
+}

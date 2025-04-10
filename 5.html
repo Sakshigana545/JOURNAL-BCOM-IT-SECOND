@@ -1,0 +1,41 @@
+<!-- Design a javascript to demonstrate use of expressions and operators -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expressions and Operators with User Input</title>
+    <script>
+        function demonstrateOperators() {
+        var num1=parseFloat(document.getElementById("number1").value);
+        var num2=parseFloat(document.getElementById("number2").value);
+        if(isNaN(num1)||isNaN(num2)) {
+        alert("Please enter valid numbers");
+        return;}
+        var addition=num1+num2;
+        var subtraction=num1-num2;
+        var multiplication=num1*num2;
+        var division=num1/num2;
+        var modulus=num1%num2;
+         var comparison=num1>num2;
+        var logicalAnd=(num1>num2)&&(num2>0);
+        var logicalOr=(num1<num2)||(num2>0);
+        var logicalNot=!comparison;
+
+        alert("Addition: "+addition+"\nSubtraction: "+subtraction+"\nMultiplication: "+multiplication+"\nDivision: "+division+"\nModulus: "+modulus);
+
+        alert("Comparison (num1>num2): "+comparison+"\nLogical AND (num1>num2 && num2>0): "+logicalAnd+"\nLogical OR (num1<num2 || num2>0): "+logicalOr+"\nLogical NOT (!comparison): "+logicalNot);
+        }
+    </script>
+</head>
+<body>
+    <h1>Expressions and Operators with User Input</h1>
+    <form onsubmit="return false;">
+        <label for="number1">Enter First Number:</label>
+        <input type="text" id="number1" name="number1">
+        <br><br>
+        <label for="number2">Enter Second Number:</label>
+        <input type="text" id="number2" name="number2">
+        <br><br>
+        <button type="button" onclick="demonstrateOperators()">Calculate</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- Design webpage or website to demonstrate use of implementing  drag and drop events, manipulating deaggable element with javascript -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Drag-and-Drop Example</title>
+    <style>
+        body{
+            background-color: pink;
+        }
+        .drop-zone {
+            width: 150px;
+            height: 150px;
+            border: 2px dashed #aaa;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            line-height: 150px;
+            font-size: 14px;
+        }
+
+        .drop-zone.over {
+            border-color: #00aaff;
+            background-color: #e0f7ff;
+        }
+
+        .draggable {
+            width: 50px;
+            height: 50px;
+            background-color: #f06;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multi Drag-and-Drop Example</h1>
+    <div class="drop-zone" id="zone1">Drop here</div>
+    <div class="drop-zone" id="zone2">Drop here</div>
+    <br>
+    <div class="draggable" id="item1" draggable="true">Item 1</div>
+    <div class="draggable" id="item2" draggable="true">Item 2</div>
+
+    <script>
+        const draggableItems = document.querySelectorAll('.draggable');
+        const dropZones = document.querySelectorAll('.drop-zone');
+
+        draggableItems.forEach(item => {
+            item.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData('text', event.target.id);
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                zone.classList.add('over');
+            });
+
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('over');
+            });
+
+            zone.addEventListener('drop', (event) => {
+                event.preventDefault();
+                const data = event.dataTransfer.getData('text');
+                const draggableElement = document.getElementById(data);
+                zone.appendChild(draggableElement);
+                zone.classList.remove('over');
+            });
+        });
+    </script>
+</body>
+</html>
+

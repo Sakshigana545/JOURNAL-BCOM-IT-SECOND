@@ -1,0 +1,46 @@
+
+            /* Style for the page */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            header, footer {
+                background-color: #4CAF50;
+                color: white;
+                text-align: center;
+                padding: 10px 0;
+            }
+    
+            section, article, aside {
+                padding: 15px;
+                margin: 10px 0;
+            }
+    
+            mark {
+                background-color: yellow;
+            }
+    
+            .marquee {
+                background-color: #f1f1f1;
+                padding: 10px;
+            }
+    
+            .highlight {
+                font-weight: bold;
+                color: red;
+            }
+    
+            h1 {
+                font-family: 'Georgia', serif;
+            }
+            .container {
+            display: flex;
+            height: 100vh; /* Full viewport height */
+        }
+        iframe {
+            flex: 1; /* Allow each iframe to take up 50% of the container */
+            border: none; /* Remove the border around iframe */
+        }
+    
